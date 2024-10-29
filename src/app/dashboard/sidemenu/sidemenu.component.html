@@ -1,0 +1,137 @@
+
+<header class="top-header">
+	<nav class="navbar navbar-expand">
+		<div class="left-topbar d-flex align-items-center">					
+		</div>
+		<div class="flex-grow-1 search-bar">
+			<div class="input-group">
+					<input type="text" class="form-control" placeholder="search" />
+					<button class="btn " type="button"><i class="lni lni-search-alt"></i></button>
+			</div>
+		</div>
+		<div class="right-topbar ms-auto">
+			<ul class="navbar-nav">
+				<li class="nav-item search-btn-mobile">
+					<a class="nav-link position-relative" href="javascript:;"><i class="bx bx-search vertical-align-middle"></i>
+					</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link ">
+						<div class="d-flex user-box align-items-center">
+							<div *ngIf="userConnected; else elseBlock">
+								<div class="nav-link btn btn-white log-register">
+									<a>{{ decodedJwtData.sub }}</a>
+								</div>
+							</div>
+							<ng-template #elseBlock>
+								<div class="nav-link btn btn-white log-register">
+									<a routerLink="/login">
+									<span><i class="feather-users"></i></span>Login</a>
+									<a routerLink="/register">Register</a>
+								</div>
+							</ng-template>
+						</div>							
+					</a>
+				</li>				
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<div class="page-content-wrapper">
+
+	<div class="page-content ">			
+		<div class="sidebar-wrapper">
+			<div class="sidebar-header">				
+				<div><img [routerLink]="['/home']" src="./assets/img/logo.png" class="logo-img"/></div>	
+			</div>
+				<ul class="metismenu" id="menu">
+					<li>
+						<a [routerLink]="['/content']">
+							<div class="parent-icon icon-color-6"><i class="bx bx-task"></i>
+							</div>
+							<div class="menu-title">Stat</div></a>
+					</li>
+					<li>
+						<a [routerLink]="['/listoffer']">
+							<div class="parent-icon icon-color-2"><i class="bx bx-envelope"></i>
+							</div>
+							<div class="menu-title">offers</div></a>
+					</li>
+					<li>
+						<a [routerLink]="['/listrequests']">
+							<div class="parent-icon icon-color-3"> <i class="bx bx-conversation"></i>
+							</div>
+							<div class="menu-title">Requests</div></a>
+					</li>
+					<li>
+						<a [routerLink]="['/listAmort']">
+							<div class="parent-icon icon-color-4"><i class="bx bx-archive"></i>
+							</div>
+							<div class="menu-title">Amortization</div></a>
+					</li>
+							<li>
+								<a href="contact-list.html">
+									<div class="parent-icon icon-color-5"><i class="bx bx-group"></i>
+									</div>
+									<div class="menu-title">Contatcs</div>
+								</a>
+							</li>
+							<li>
+								<a href="to-do.html">
+									<div class="parent-icon icon-color-6"><i class="bx bx-task"></i>
+									</div>
+									<div class="menu-title">Blog Verification</div>
+								</a>
+							</li>
+							<li>
+								<a href="invoice.html">
+									<div class="parent-icon icon-color-7"><i class="bx bx-file"></i>
+									</div>
+									<div class="menu-title">Invoice</div>
+								</a>
+							</li>
+							<li>
+								<a href="fullcalender.html">
+									<div class="parent-icon icon-color-8"> <i class="bx bx-calendar-check"></i>
+									</div>
+									<div class="menu-title">Calendar</div>
+								</a>
+							</li>
+								
+				</ul>
+			</div>
+			<app-average-investment-value></app-average-investment-value>
+	<app-highest-lowest-investments></app-highest-lowest-investments>
+<app-category-analysis></app-category-analysis>
+	<app-validate-project></app-validate-project>
+		</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+<!--
+<div class="page-wrapper">
+</div>
+<div class="overlay toggle-btn-mobile"></div>
+	<a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+</div>
+
+-->
+	
+	
+

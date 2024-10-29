@@ -1,0 +1,116 @@
+
+<app-sidemenu></app-sidemenu>
+
+<div class="card card-tableset">
+  <div class="card-body">    
+    <div class="coache-head-blk">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="court-table-head">
+            <h4>Amortizations:</h4>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="tablefilter"></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-borderless datatable">
+        <thead class="thead-light">
+          <tr>
+            <th>idAmt</th>
+            <th>periode</th>
+            <th>date</th>
+            <th>start Amount</th>
+            <th>intrest</th>
+            <th>amortization</th>
+            <th>annuity</th>
+            <th>frais</th>
+            <th>agio</th>
+            <th>action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of amortizations">
+                <td>{{a.idAmt}}</td>
+                <td>{{a.date}}</td>
+                <td>{{a.periode}}</td>
+                <td>{{a.startAmount}}</td>
+                <td>{{a.intrest}}</td>
+                <td>{{a.amrt}}</td>
+                <td>{{a.annuity}}</td>                        
+                <td>{{a.frais}}</td>
+                <td>{{a.agio}}</td>
+                <td class="text-pink view-detail-pink"><a href="javascript:;" data-bs-toggle="modal" data-bs-target="#upcoming-court"><i class="feather-eye"></i>Details</a></td>
+              </tr>
+            </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+    <div class="modal custom-modal fade request-modal" id="upcoming-court" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+      <div class="modal-header">
+      <div class="form-header modal-header-title">
+      <h4 class="mb-0">Details Amortization N°: </h4>
+      </div>
+      <a class="close" data-bs-dismiss="modal" aria-label="Close">
+      <span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+      </a>
+      </div>
+      <div class="modal-body">
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card dashboard-card court-information">
+            <table class="table table-borderless datatable">
+              <thead class="thead-light">
+                <tr>
+                  <th>idAmt</th>
+                  <th>periode</th>
+                  <th>date</th>
+                  <th>start Amount</th>
+                  <th>intrest</th>
+                  <th>amortization</th>
+                  <th>annuity</th>
+                  <th>frais</th>
+                  <th>agio</th>
+                  <th>action</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of amortizations">
+                      <td>{{a.idAmt}}</td>
+                      <td>{{a.date}}</td>
+                      <td>{{a.periode}}</td>
+                      <td>{{a.startAmount}}</td>
+                      <td>{{a.intrest}}</td>
+                      <td>{{a.amrt}}</td>
+                      <td>{{a.annuity}}</td>                        
+                      <td>{{a.frais}}</td>
+                      <td>{{a.agio}}</td>
+                      <td><i class="feather-bell"></i>
+                        <span class="alert-bg"></span>
+                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#upcoming-court"></a>
+                      </td>
+                    </tr>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+      <div class="modal-footer">
+      <div class="table-accept-btn">
+      <a href="javascript:;" data-bs-dismiss="modal" class="btn cancel-table-btn">Cancel</a>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+

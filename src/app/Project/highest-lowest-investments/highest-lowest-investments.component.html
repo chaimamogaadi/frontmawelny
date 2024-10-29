@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Project with Highest Investment</h3>
+    </div>
+    <div class="card-body">
+        <div *ngIf="highestInvestmentProject">
+            <p class="mb-1"><strong>Name:</strong> {{ highestInvestmentProject.nomProject }}</p>
+            <p class="mb-0"><strong>Total Raising Investment:</strong> {{ highestInvestmentProject.total_raising_investment }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-header bg-danger text-white">
+        <h3 class="mb-0">Project with Lowest Investment</h3>
+    </div>
+    <div class="card-body">
+        <div *ngIf="lowestInvestmentProject">
+            <p class="mb-1"><strong>Name:</strong> {{ lowestInvestmentProject.nomProject }}</p>
+            <p class="mb-0"><strong>Total Raising Investment:</strong> {{ lowestInvestmentProject.total_raising_investment }}</p>
+        </div>
+    </div>
+</div>

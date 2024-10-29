@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<main>
+    <div class="breadcrumb breadcrumb-list mb-0">
+        <div class="container">
+            <h1 class="text-white">Add Project</h1>
+        </div>
+    </div>
+
+    <div class="content court-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="profile-detail-group">
+                        <div class="card">
+                            <form [formGroup]="projectForm" (ngSubmit)="addProject()" novalidate>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="input-space">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Enter title" formControlName="nomProject" required>
+                                            <div *ngIf="projectForm.controls['nomProject'].errors?.['required']" class="text-danger">Title is required.</div>
+                                        </div>
+                                        <div class="input-space">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control" id="description" placeholder="Enter Description" formControlName="description" minlength="50" required></textarea>
+                                            <div *ngIf="projectForm.controls['description'].errors?.['required']" class="text-danger">Description is required.</div>
+                                            <div *ngIf="projectForm.controls['description'].errors?.['minlength']" class="text-danger">Description must be at least 50 characters long.</div>
+                                        </div>
+                                        <div class="input-space">
+                                            <label class="form-label">Total Amount</label>
+                                            <input type="number" class="form-control" id="amount" placeholder="Enter Amount" formControlName="amount_inv" min="10" required>
+                                            <div *ngIf="projectForm.controls['amount_inv'].errors?.['required']" class="text-danger">Total Amount is required.</div>
+                                            <div *ngIf="projectForm.controls['amount_inv'].errors?.['min']" class="text-danger">Amount must be 10 or more.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="input-space">
+                                            <label class="form-label">Start date</label>
+                                            <input type="date" class="form-control" id="startDate" placeholder="Enter Start Date" formControlName="date_debut" required>
+                                            <div *ngIf="projectForm.controls['date_debut'].errors?.['required']" class="text-danger">Start Date is required.</div>
+                                        </div>
+                                        <div class="input-space">
+                                            <label class="form-label">End date</label>
+                                            <input type="date" class="form-control" id="endDate" placeholder="Enter End Date" formControlName="date_fin" required>
+                                            <div *ngIf="projectForm.controls['date_fin'].errors?.['required']" class="text-danger">End Date is required.</div>
+                                        </div>
+                                        <div class="input-space mb-0">
+                                            <label class="form-label">Category</label>
+                                            <select class="select" id="category" formControlName="categoryProject" required>
+                                                <option *ngFor="let categoryProject of categoryProjects" [ngValue]="categoryProject">{{ categoryProject }}</option>
+                                            </select>
+                                            <div *ngIf="projectForm.controls['categoryProject'].errors?.['required']" class="text-danger">Category is required.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="save-changes text-end">
+                                    <button type="button" class="btn btn-primary reset-profile" (click)="resetForm()">Reset</button>
+                                    <button type="submit" class="btn btn-secondary save-profile" [disabled]="!projectForm.valid">Add Project</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<app-footer></app-footer>

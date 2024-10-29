@@ -1,0 +1,14 @@
+.work-content ul.list-group {
+    padding: 0;
+}
+
+.work-content ul.list-group li.list-group-item {
+    border: none;
+    padding: 5px 0;
+    border-bottom: none; /* Remove border bottom */
+}
+
+.work-content ul.list-group li.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none; /* Remove border bottom */
+}

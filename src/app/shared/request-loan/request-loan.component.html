@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+
+<section class="breadcrumb mb-0">
+    <span class="primary-right-round"></span>
+    <div class="container">
+        <h1 class="text-white">Request a loan</h1>
+        <ul>
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li>Request a loan</li>
+        </ul>
+    </div>
+</section>
+
+<section class="booking-steps py-30">
+    <div class="container">
+        <ul class="d-xl-flex justify-content-center align-items-center">
+            <li class="active">
+                <h5><a [routerLink]="['/request']"><span>1</span>Request loan</a></h5>
+            </li>
+            <li>
+                <h5><a [routerLink]="['/info']"><span>2</span>Additional Information</a></h5>
+            </li>
+        </ul>
+    </div>
+</section>
+ 
+
+<div class="content">
+    <div class="container">
+        <section class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+            <div class="text-center mb-40">
+                <h3 class="mb-1"> Information</h3>
+                <p class="sub-title">please fill all the fields with accurate information </p>
+            </div>
+            <div class="card">
+                <h3 class="border-bottom">Enter Details:</h3>
+                
+                <form [formGroup]="reqForm" >
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" [value]="getCurrentDate()" disabled>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Offer Loan Chosen: {{ offerLoan!.typeLoan }}</label>
+                        <input class="form-control" [value]="offerLoan!.typeLoan" disabled>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Type Amortization</label>
+                        <select class="form-control" [(ngModel)]="reqForm.value.selectedTypeAmort">
+                          <option value="CONST_MONTHLY" *ngIf="offerLoan?.typeLoan === 'STUDENT' || offerLoan?.typeLoan === 'FARMER' || offerLoan?.typeLoan === 'HOMEMAKER'">CONST MONTHLY</option>
+                          <option value="CONST_AMORTIZATION" *ngIf="offerLoan?.typeLoan === 'PROJECT'">CONST AMORTIZATION</option>
+                          <option value="LOAN_PER_BLOC" *ngIf="offerLoan?.typeLoan === 'PROJECT'">LOAN PER BLOC</option>
+                          <option value="CONST_ANNUITY" *ngIf="offerLoan?.typeLoan === 'PROJECT'">CONST ANNUITY</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Loan Amount</label>
+                        <input type="number" class="form-control" [(ngModel)]="reqForm.value.loanAmnt">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Period of the loan</label>
+                        <input type="number" class="form-control" [(ngModel)]="reqForm.value.loanPeriod">
+                      </div>
+                    <!--
+                    <div class="mb-3 file-upload-text appointment-upload">
+                        <label class="form-label">Guarantor Document (PDF)</label>
+                        <div class="file-upload">
+                            <p>Upload File</p>
+                            <input type="file" formControlName="garantorFile" (change)="onFileSelected($event)">
+                        </div>
+                    </div>
+                    -->
+                </form>
+
+            </div>
+            </section>
+            <div class="text-center btn-row">
+                <a class="btn btn-primary me-3 btn-icon" [routerLink]="['/home']"><i class="feather-arrow-left-circle me-1"></i> Back</a>
+                <a type="submit" class="btn btn-secondary btn-icon"  (click)="addRequest()" [routerLink]="['/info']" >Submit <i class="feather-arrow-right-circle ms-1"></i></a>
+            </div>
+        </div>        
+    </div>
+
+
+
+
+    <app-footer></app-footer>

@@ -1,0 +1,13 @@
+<div class="card mt-3">
+    <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Average Investment Value</h3>
+    </div>
+    <div class="card-body">
+        <div *ngIf="averageInvestmentValue !== null">
+            <p class="mb-0">{{ averageInvestmentValue | dtCurrency }}</p>
+        </div>
+        <div *ngIf="averageInvestmentValue === null">
+            <p class="mb-0">Loading...</p>
+        </div>
+    </div>
+</div>

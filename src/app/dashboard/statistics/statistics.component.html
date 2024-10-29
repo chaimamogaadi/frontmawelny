@@ -1,0 +1,41 @@
+<div class="row">
+    <!-- Card for most invested categories -->
+    <div class="col-lg-12">
+      <div class="card dashboard-card statistics-card">
+        <div class="card-header">
+          <h4>Statistics</h4>
+          <p>Boost your game with stats and goals tailored to you</p>
+        </div>
+        <div class="row">
+          <div class="col-xl-3 col-lg-6 col-md-6 d-flex" *ngFor="let categoryProjects of mostInvestedCategories">
+            <div class="statistics-grid flex-fill">
+              <div class="statistics-content">
+                <h3>{{ categoryProjects }}</h3>
+                <p>Total Investments: {{ categoryProjects.count }}</p>
+              </div>
+              <div class="statistics-icon">
+                <img src="assets/img/icons/statistics-01.svg" alt="Icon">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Card for investor with most investment -->
+    <div class="col-lg-12">
+      <div class="card dashboard-card statistics-card">
+        <div class="card-header">
+          <h4>Investor with Most Investment</h4>
+          <p>View the top investor</p>
+        </div>
+        <div class="card-body">
+          <h3>{{ investorWithMostInvestment?.firstname }} {{ investorWithMostInvestment?.lastname }}</h3>
+          <p>has the highest investment amount</p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  

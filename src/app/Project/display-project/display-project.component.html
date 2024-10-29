@@ -1,0 +1,153 @@
+<div class="content court-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="court-tab-content">
+       
+            
+            <div class="card card-tableset">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-borderless datatable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th> idProject</th>
+                        <th>nomProject</th>
+                        <th>description</th>
+                        <th>amount inv</th>
+                        <th>invest value</th>
+                        <th>invest Need</th>
+                        <th>total_interest</th>
+                        <th>total_raising_investment</th>
+                        <th>CategoryProject</th>
+                        <th>Status_Invest</th>
+                        <th> Status_project</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let p of projects ">
+                        <td>{{p.idProject}}</td>
+                        <td>{{p.nomProject}}</td>
+                        <td>{{p.description}}</td>
+                        <td>{{p.amount_inv}}</td>
+                        <td>{{p.invest_value}}</td>
+                        <td>{{p.investNeed}}</td>
+                        <td>{{p.total_interest}}</td>
+                        <td>{{p.total_raising_investment}}</td>
+                        <td>{{p.categoryProject}}</td>
+                        <td>{{p.status_Invest}}</td>
+                        <td>{{p.status_project}}</td>
+                        <td><div class="accordion-item mb-4" id="reviews">
+                            <div>
+                                <div>
+                                    <a href="javascript:void(0);" class="btn btn-gradient pull-right write-review add-review" data-bs-toggle="modal" data-bs-target="#add-review">Write a review</a>
+                                </div>
+                            </div>
+                            <div class="modal custom-modal fade payment-modal" id="add-review" role="dialog">
+                              <div class="modal-dialog modal-dialog-centered modal-md">
+                              <div class="modal-content">
+                              <div class="modal-header">
+                              <div class="form-header modal-header-title">
+                              <h4 class="mb-0">Write a Review</h4>
+                              </div>
+                              <a class="close" data-bs-dismiss="modal" aria-label="Close">
+                              <span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+                              </a>
+                              </div>
+                              <div class="modal-body">
+                              <form>
+                              <div class="row">
+                              <div class="col-lg-12">
+                              <div class="input-space">
+                              <label class="form-label">Your FeedBack <span>*</span></label>
+                              <textarea class="form-control" id="review" rows="3" placeholder="Enter Your FeedBack"></textarea>
+                              </div>
+                              </div>
+                              <div class="col-lg-12">
+                              <div class="input-space review">
+                              <label class="form-label">Rating <span>*</span></label>
+                              <div class="star-rating">
+                              <input id="star-5" type="radio" name="rating" value="star-5">
+                              <label for="star-5" title="5 stars">
+                              <i class="active fa fa-star"></i>
+                              </label>
+                              <input id="star-4" type="radio" name="rating" value="star-4">
+                              <label for="star-4" title="4 stars">
+                              <i class="active fa fa-star"></i>
+                              </label>
+                              <input id="star-3" type="radio" name="rating" value="star-3">
+                              <label for="star-3" title="3 stars">
+                              <i class="active fa fa-star"></i>
+                              </label>
+                              <input id="star-2" type="radio" name="rating" value="star-2">
+                              <label for="star-2" title="2 stars">
+                              <i class="active fa fa-star"></i>
+                              </label>
+                              <input id="star-1" type="radio" name="rating" value="star-1">
+                              <label for="star-1" title="1 star">
+                              <i class="active fa fa-star"></i>
+                              </label>
+                              </div>
+                              </div>
+                              </div>
+                              <div class="form-group">
+                              <div class="terms-accept">
+
+                              </div>
+                              </div>
+                              </div>
+                              </form>
+                              </div>
+                              <div class="modal-footer">
+                              <div class="table-accept-btn">
+                              <a href="javascript:;" class="btn btn-primary">Rate Project</a>
+                              </div>
+                              </div>
+                              </div>
+                              </div>
+                            </div>
+                          </div></td>
+                       
+                        <td class="table-inset-btn">
+                          <div class="interset-btn">
+                            <div class="status-toggle d-inline-flex align-items-center">
+                              <input type="checkbox" class="check" >
+                          </div>
+                          </div>
+                        </td>
+                        <td class="text-end">
+                          <div class="dropdown dropdown-action table-drop-action">
+                              <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></a>
+                              <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="javascript:void(0);" ><i class="feather-edit"></i>Validate</a>
+                                <a class="dropdown-item" href="javascript:void(0);"><i class="feather-trash"></i>Delete</a>
+                              </div>
+                          </div>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+  
+            <div class="tab-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <div id="tablelength"></div>
+                </div>
+                <div class="col-md-6">
+                  <div id="tablepage"></div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

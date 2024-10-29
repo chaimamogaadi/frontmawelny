@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CategoryAnalysisComponent } from './category-analysis.component';
+
+describe('CategoryAnalysisComponent', () => {
+  let component: CategoryAnalysisComponent;
+  let fixture: ComponentFixture<CategoryAnalysisComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ CategoryAnalysisComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(CategoryAnalysisComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

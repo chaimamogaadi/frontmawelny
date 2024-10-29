@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+
+
+<section class="breadcrumb mb-0">
+    <span class="primary-right-round"></span>
+        <div class="container">
+            <h1 class="text-white">Request a loan</h1>
+            <ul>
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li>Request a loan</li>
+            </ul>
+        </div>
+</section>
+    
+<section class="booking-steps py-30">
+    <div class="container">
+        <ul class="d-xl-flex justify-content-center align-items-center">
+            <li><h5><a [routerLink]="['/Request']"><span>1</span>Type of Loan</a></h5></li>
+            <li class="active"><h5><a [routerLink]="['/info']"><span>2</span>Additional Information</a></h5></li>
+        </ul>
+    </div>
+</section>
+
+<div class="content">
+    <div class="container">
+    <section class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+        <div class="text-center mb-40">
+            <h3 class="mb-1">Additional Information</h3>
+            <p class="sub-title"> these information will determine if you're eligible for the loan or not.</p>
+        </div>
+        <div class="card">
+            <h3 class="border-bottom">Enter Details</h3>
+            <form>        
+                <div class="mb-3">
+                    <label for="name" class="form-label">Married</label>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                        <div class="radio">
+                            <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input default-check me-2" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Credit Card">
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-3">
+                                <input class="form-check-input default-check me-2" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Paypal">
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Monthly Income</label>
+                    <input type="number" class="form-control"  placeholder="Enter your Monthly Income">
+                </div>
+                <div class="input-space">
+                    <label for="propertyArea" class="form-label"> Education</label>
+                    <select id="propertyArea" class="form-select">
+                        <option value="Graduate">Graduate</option>
+                        <option value="Not_Graduate">Not Graduate</option>
+                    </select>
+                </div>                
+                <div class="mb-3">
+                    <label for="propertyArea" class="form-label">Property Area</label>
+                    <select id="propertyArea" class="form-select">
+                        <option value="urban">Urban</option>
+                        <option value="rural">Rural</option>
+                        <option value="semiurban">Semi-Urban</option>
+                    </select>
+                </div>  
+            </form>
+        </div>
+    </section>
+    <div class="text-center btn-row">
+        <a class="btn btn-primary me-3 btn-icon" [routerLink]="['/Request']"><i class="feather-arrow-left-circle me-1"></i> Back</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingconfirmModal">submit form</button>
+    </div>
+</div>
+        
+<div class="modal fade" id="bookingconfirmModal" tabindex="-1" aria-labelledby="bookingconfirmModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header text-center d-inline-block">
+    <img src="assets/img/icons/booking-confirmed.svg" alt="Icon">
+    </div>
+    <div class="modal-body text-center">
+    <h3 class="mb-3">request has been sent</h3>
+    <p>eligible or not</p>
+    </div>
+    <div class="modal-footer text-center d-inline-block">
+    <a [routerLink]="['/home']" class="btn btn-primary"><i class="feather-arrow-left-circle me-1"></i>Back to homepage</a>
+    </div>
+    </div>
+    </div>
+        </div>

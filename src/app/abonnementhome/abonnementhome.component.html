@@ -1,0 +1,99 @@
+<section class="section work-section">
+    <div class="work-cock-img">
+        <img src="assets/img/icons/work-cock.svg" alt="Icon">
+    </div>
+    <div class="work-img">
+        <div class="work-img-right">
+            <img src="assets/img/bg/work-bg.png" alt="Icon">
+        </div>
+    </div>
+    <div class="container">
+        <div class="section-heading aos">
+            <h2>List of <span>Projects</span></h2>
+            <p class="sub-title">Invest today, reap rewards tomorrow; seize opportunities for financial growth</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex" *ngFor="let p of projects">
+                <div class="work-grid w-100 aos">
+                    <div class="work-content">
+                        <h5>{{ p.nomProject }}</h5>
+                        <p class="card-text">{{ p.description }}</p>
+                        <ul class="list-group list-group-flush">
+                            <!-- Project details -->
+                            <li class="list-group-item">Status Project: {{ p.status_project }}</li>
+                            <li class="list-group-item">Status Invest: {{ p.status_Invest }}</li>
+                            <li class="list-group-item">Category: {{ p.categoryProject }}</li>
+                            <li class="list-group-item">Amount Invested: {{ p.amount_inv }}</li>
+                            <li class="list-group-item">Investment Value: {{ p.invest_value }}</li>
+                            <li class="list-group-item">Investment Need: {{ p.investNeed }}</li>
+                            <li class="list-group-item">Total Raising Investment: {{ p.total_raising_investment }}</li>
+                            <li class="list-group-item">Start Date: {{ p.date_debut }}</li>
+                            <li class="list-group-item">End Date: {{ p.date_fin }}</li>
+                        </ul>
+                        <div class="accordion-item mb-4" id="reviews">
+                            <div>
+                                <div>
+                                    <a href="javascript:void(0);" class="btn" data-bs-toggle="modal" data-bs-target="#add-review" (click)="openInvestmentModal(p)">Invest</a>
+                                </div>
+                            </div>
+                            <!-- Investment Modal -->
+                            <div class="modal custom-modal fade payment-modal" id="add-review" role="dialog">
+                                <div class="modal-dialog modal-dialog-centered modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="form-header modal-header-title">
+                                                <h4 class="mb-0">Invest</h4>
+                                            </div>
+                                            <a class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <span class="align-center" aria-hidden="true"><i class="feather-x"></i></span>
+                                            </a>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form (ngSubmit)="submitInvestmentForm()" [formGroup]="investmentForm">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="input-space">
+                                                            <label class="form-label">Your Action <span>*</span></label>
+                                                            <input type="number" class="form-control" formControlName="nbr_action" placeholder="Enter how many actions you want to buy">
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Validation messages -->
+                                                <div *ngIf="investmentForm.get('nbr_action')?.touched && investmentForm.get('nbr_action')?.invalid" 
+     class="error-message">
+  <span *ngIf="investmentForm.get('nbr_action')?.errors?.['required']">
+    Number of actions is required
+  </span>
+  <span *ngIf="investmentForm.get('nbr_action')?.errors?.['min']">
+    Minimum 1 action required
+  </span>
+  <span *ngIf="investmentForm.get('nbr_action')?.errors?.['max']">
+    Maximum 80 actions allowed
+  </span>
+</div>
+                                                
+                                                
+                                                
+                                                <!-- Submit button -->
+                                                <button 
+                                                (click)="submitInvestmentForm()" 
+                                                [disabled]="isSubmitting || investmentForm.invalid"
+                                                class="submit-button">
+                                                {{ isSubmitting ? 'Submitting...' : 'Submit Investment' }}
+                                              </button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

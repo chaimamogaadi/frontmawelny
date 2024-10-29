@@ -1,0 +1,57 @@
+
+<section class="section work-section">
+  <div class="work-cock-img">
+      <img src="assets/img/icons/work-cock.svg" alt="Icon">
+  </div>
+  <div class="work-img">
+      <div class="work-img-right">
+          <img src="assets/img/bg/work-bg.png" alt="Icon">
+      </div>
+  </div>
+  <div class="container">
+      <div class="section-heading aos" >
+          <h2>Our  <span> Services</span></h2>
+          <p class="sub-title">Empower Your Financial Future with Smart loans</p>
+      </div>
+      <!--filter by loan type -->
+      <div class="interset-btn">
+        <div class="status-toggle d-inline-flex align-items-center">
+          <span class="mr-2">Yearly</span>
+          <input type="checkbox" id="monthlyYearlyCheckbox" class="check" (change)="toggleMonthlyYearly($event)" />
+          <label for="monthlyYearlyCheckbox" class="checktoggle">checkbox</label>
+          <span class="mr-2">Monthly</span>
+        </div>
+      </div>
+
+<!-- this displays all the offers in cards -->
+      <div class="row justify-content-center" *ngIf="offers && offers.length > 0">
+        <div class="col-lg-4 col-md-6 d-flex" *ngFor="let o of offers ; let i=index">
+
+          <div class="card work-grid w-100 aos">
+            <div class="card-body">
+              <div class="work-icon">
+                <div class="work-icon-inner">
+                  <img src="assets/img/icons/work-icon1.svg" alt="Icon">
+                </div>
+              </div>
+              <div class="work-content" >
+                <h5><a>{{o.typeLoan}}</a></h5>
+                <p class="mb-1">Status: {{o.status}}</p>
+                <p class="mb-1">Max Amount: {{o.maxAmnt}}.000</p>
+                <p class="mb-1">Min Amount: {{o.minAmnt}}</p>
+                <p class="mb-1">Min Periode: {{o.minRepaymentPer}}</p>
+                <p class="mb-1">Interest Rate: {{o.intRate}}</p>
+                <p class="mb-1"></p>
+                <a class="btn btn-secondary d-inline-flex align-items-center" data-bs-toggle="modal" [routerLink]="['/offer', o.idOffer]" > Simulation</a>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      
+      
+
+    </div>
+
+</section>
